@@ -823,12 +823,12 @@ function savePeriod(period, increment) {
         stopRow: stopRow
       }, function(err, resp) {
 
-        if (!resp.length) {
-          console.log(m + ': no data')
-        }
-
         if (err) {
           reject(err)
+
+        } else if (!resp.length) {
+          console.log(m + ': no data')
+
         } else {
           var d = reduce(resp)
           var parts = m.split('|')
